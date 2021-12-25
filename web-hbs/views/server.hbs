@@ -4,7 +4,13 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 <h2>
-<button type="button" id="good" value="good">good</button>
+<div id='wrapper'>
+    <button type="button" id="good" value="good">good</button>
+    <button type="button" id="so_good" value="so_good">so_good</button>
+    <button type="button" id="stand" value="stand">stand</button>
+    <button type="button" id="sit" value="sit">sit</button>
+    <button type="button" id="kneel" value="kneel">kneel</button>
+</div>
 </h2>
 
 <div class="box" id="log">
@@ -23,9 +29,14 @@
   socket.on('connection', (socket) => {
     console.log('connected');
   });
-  var button = document.getElementById("good");
-  button.addEventListener('click', function(e) {
-     socket.emit('play_sound', button.value);
+  var wrapper = document.getElementById("wrapper");
+  wrapper.addEventListener('click', function(event) {
+      const isButton = event.target.nodeName === 'BUTTON';
+      if (!isButton) {
+       return;
+      }
+
+     socket.emit('play_sound', event.target.value);
   });
   
   socket.on('connection', (socket) => {

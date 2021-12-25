@@ -25,6 +25,28 @@
     new Audio('/audio/good/6.mp3'),
     new Audio('/audio/good/7.mp3'),
   ]
+  const stand = 
+  [ 
+    new Audio('/audio/stand/1.wav'),
+    new Audio('/audio/stand/2.wav'),
+    new Audio('/audio/stand/3.wav'),
+    new Audio('/audio/stand/4.wav'),
+    new Audio('/audio/stand/5.wav'),
+  ]
+  const sit = 
+  [ 
+    new Audio('/audio/sit/1.wav'),
+    new Audio('/audio/sit/2.wav'),
+    new Audio('/audio/sit/3.wav'),
+    new Audio('/audio/sit/4.wav'),
+    new Audio('/audio/sit/5.wav'),
+  ]
+  const kneel = 
+  [ 
+    new Audio('/audio/kneel/1.mp3'),
+    new Audio('/audio/kneel/2.mp3'),
+    new Audio('/audio/kneel/3.mp3'),
+  ]
   const so_good = new Audio('/audio/good/8.mp3');
 
   var socket = io.connect();
@@ -44,6 +66,15 @@
     }
     if(msg=="so_good") {
       so_good.play();
+    }
+    if(msg=="stand") {
+      stand[Math.floor(Math.random()*stand.length)].play();
+    }
+    if(msg=="sit") {
+      sit[Math.floor(Math.random()*sit.length)].play();
+    }
+    if(msg=="kneel") {
+      kneel[Math.floor(Math.random()*kneel.length)].play();
     }
   });
   
