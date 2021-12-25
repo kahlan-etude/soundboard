@@ -6,7 +6,7 @@
     <div>
       <h3 class="float-md-start mb-0">hypnoboard</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active" aria-current="page" href="/client">client</a>
+        <a class="nav-link active" aria-current="page" href="/client">listener</a>
         <a class="nav-link" href="/server">server</a>
         <a class="nav-link" href="/about">about</a>
       </nav>
@@ -28,8 +28,7 @@
 
    
     <div class="h-50 p-2 border rounded-3">
-      <h2>Logging</h2>
-      <div id="log"></div>
+      <div id="log" class="overflow-auto h-100">Logging</div>
   
     </div>
 
@@ -45,6 +44,8 @@
     $("#log").append("<br/>");
     $("#log").append(txt);
     $("#log").append("<br/>");
+    var v = document.getElementById('log');
+    v.scrollTop = v.scrollHeight;
   }
 
   var socket = io.connect();
@@ -60,7 +61,10 @@
 
      socket.emit('play_sound', event.target.value);
   });
-  
+ 
+  socket.on('get_count', function (msg){
+   console.log(msg);
+  }); 
   socket.on('connection', (socket) => {
     console.log('connected');
   });
