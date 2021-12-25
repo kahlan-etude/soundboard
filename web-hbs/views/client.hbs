@@ -1,0 +1,26 @@
+<script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+<div class="box" id="log">
+text
+<script>
+
+  window.console.log = function(txt) {
+
+    $("#log").append("<br/>");
+    $("#log").append(txt);
+    $("#log").append("<br/>");
+  }
+
+  var host = window.location.hostname; //+ ":8080";
+  console.log(host);
+  //var socket = io.connect(host);
+  var socket = io.connect();
+  socket.on('connection', (socket) => {
+    console.log('connected');
+  });
+</script>
+</div>
