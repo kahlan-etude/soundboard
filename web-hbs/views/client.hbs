@@ -4,23 +4,49 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
+<h2><label><input type="checkbox">Turn on audio</button></label></h2>
+
 <div class="box" id="log">
-text
 <script>
 
   window.console.log = function(txt) {
-
     $("#log").append("<br/>");
     $("#log").append(txt);
     $("#log").append("<br/>");
   }
+  
+  const good = 
+  [ 
+    new Audio('/audio/good/1.mp3'),
+    new Audio('/audio/good/2.mp3'),
+    new Audio('/audio/good/3.mp3'),
+    new Audio('/audio/good/4.mp3'),
+    new Audio('/audio/good/5.mp3'),
+    new Audio('/audio/good/6.mp3'),
+    new Audio('/audio/good/7.mp3'),
+  ]
+  const so_good = new Audio('/audio/good/8.mp3');
 
-  var host = window.location.hostname; //+ ":8080";
-  console.log(host);
-  //var socket = io.connect(host);
   var socket = io.connect();
   socket.on('connection', (socket) => {
     console.log('connected');
   });
+    socket.on('connect', function(){
+    console.log('connect')
+  });
+    socket.on('disconnect', function(){
+    console.log('disconnect')
+  });
+  socket.on('play_sound', function(msg){
+    console.log(msg)
+    if(msg=="good") {
+      good[Math.floor(Math.random()*good.length)].play();
+    }
+    if(msg=="so_good") {
+      so_good.play();
+    }
+  });
+  
+  
 </script>
 </div>
