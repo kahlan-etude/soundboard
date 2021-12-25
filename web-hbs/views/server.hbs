@@ -1,20 +1,42 @@
-<script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<h2>
-<div id='wrapper'>
-    <button type="button" id="good" value="good">good</button>
-    <button type="button" id="so_good" value="so_good">so_good</button>
-    <button type="button" id="stand" value="stand">stand</button>
-    <button type="button" id="sit" value="sit">sit</button>
-    <button type="button" id="kneel" value="kneel">kneel</button>
-</div>
-</h2>
+<link href="stylesheets/cover.css" rel="stylesheet">
 
-<div class="box" id="log">
+<div class="cover-container d-flex w-100 h-100 p-3 text-center mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">hypnoboard</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="/client">client</a>
+        <a class="nav-link" href="/server">server</a>
+        <a class="nav-link" href="/about">about</a>
+      </nav>
+    </div>
+  </header>
 
+  <main class="px-3">
+    <h1>server</h1>
+    <p class="lead">A soundboard for lighthearted fun</p>
+      <div id='wrapper'>
+        <button type="button" id="good" value="good">good</button>
+        <button type="button" id="so_good" value="so_good">so_good</button>
+        <button type="button" id="stand" value="stand">stand</button>
+        <button type="button" id="sit" value="sit">sit</button>
+        <button type="button" id="kneel" value="kneel">kneel</button>
+        </div>
+    <p/>
+  </main>
+
+   
+    <div class="h-50 p-2 border rounded-3">
+      <h2>Logging</h2>
+      <div id="log"></div>
+  
+    </div>
+
+
+  <footer class="mt-auto text-white-50">
+    <p>bootstrap</p>
+  </footer>
 </div>
 
 <script>
@@ -53,4 +75,5 @@
   });
   
 </script>
+    
 

@@ -1,12 +1,39 @@
-<script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<link href="stylesheets/cover.css" rel="stylesheet">
 
-<h2><label><input type="checkbox">Turn on audio</button></label></h2>
+<div class="cover-container text-center d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">hypnoboard</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="/client">client</a>
+        <a class="nav-link" href="/server">server</a>
+        <a class="nav-link" href="/about">about</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="box" id="log">
+  <main class="px-3">
+    <h1>client</h1>
+    <p class="lead">A soundboard for lighthearted fun</p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary fw-bold ">Start</a>
+    </p>
+  </main>
+
+   
+    <div class="h-50 p-2 border rounded-3">
+      <h2>Logging</h2>
+      <div id="log"></div>
+  
+    </div>
+
+
+  <footer class="mt-auto text-white-50">
+    <p>bootstrap</p>
+  </footer>
+</div>
+
 <script>
 
   window.console.log = function(txt) {
@@ -78,6 +105,8 @@
     }
   });
   
-  
 </script>
-</div>
+
+    
+
+
